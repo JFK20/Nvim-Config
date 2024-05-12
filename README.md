@@ -15,5 +15,6 @@ This config sits in ~/.config/nvim/nvim/lua
 Requirements:
 1. have [Go](https://go.dev/doc/install) Installed <br>
   more help [here](https://dev.to/deadwin19/how-to-install-golang-on-wslwsl2-2880) 
-2. add [Gopls](go install golang.org/x/tools/gopls@latest) <br>
+2. add [Gopls](https://pkg.go.dev/golang.org/x/tools/gopls#section-readme) <br>
+  with 'go install golang.org/x/tools/gopls@latest'
   important restart System afterwars
