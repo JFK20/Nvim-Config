@@ -40,7 +40,7 @@ local plugins = {
   {
     "mfussenegger/nvim-dap",
     init = function()
-      require("core.utils").load_mappings("dap")
+      -- require("core.utils").load_mappings("dap")
     end
   },
   {
@@ -49,7 +49,7 @@ local plugins = {
     dependencies = "mfussenegger/nvim-dap",
     config = function(_, opts)
       require("dap-go").setup(opts)
-      require("core.utils").load_mappings("dap_go")
+      -- require("core.utils").load_mappings("dap_go")
     end
   },
 }
