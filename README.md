@@ -22,3 +22,4 @@ Requirements:
 3. Add the folloiwin go packges to the system via <br>
     go install github.com/segmentio/golines@latest <br>
     go install -v github.com/incu6us/goimports-reviser/v3@latest <br>
+    go install github.com/go-delve/delve/cmd/dlv@latest
