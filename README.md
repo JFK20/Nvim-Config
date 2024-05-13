@@ -18,3 +18,7 @@ Requirements:
 2. add [Gopls](https://pkg.go.dev/golang.org/x/tools/gopls#section-readme) <br>
   with 'go install golang.org/x/tools/gopls@latest'
   important restart System afterwars
+
+3. Add the folloiwin go packges to the system via <br>
+    go install github.com/segmentio/golines@latest <br>
+    go install -v github.com/incu6us/goimports-reviser/v3@latest <br>
