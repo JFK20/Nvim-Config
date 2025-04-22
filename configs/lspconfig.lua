@@ -34,6 +34,16 @@ lspconfig.gopls.setup {
     },
   },
 }
+
+-- lspconfig.dockerls.setup {
+--  cmd = { "docker-language-server start", "--stdio" },
+--  filetypes = { "Dockerfile", "dockerfile" },
+--  root_dir = util.root_pattern(".git", "Dockerfile"),
+--  on_attach = nvlsp.on_attach,
+--  on_init = nvlsp.on_init,
+--  capabilities = nvlsp.capabilities,
+-- }
+
 -- configuring single server, example: typescript
 -- lspconfig.ts_ls.setup {
 --   on_attach = nvlsp.on_attach,

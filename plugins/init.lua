@@ -1,3 +1,5 @@
+require("configs.filetypes")
+
 return {
   {
     "stevearc/conform.nvim",
