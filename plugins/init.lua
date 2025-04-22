@@ -42,7 +42,14 @@ return {
     dependencies = "mfussenegger/nvim-dap",
     config = function(_, opts)
       require("dap-go").setup(opts)
-      -- require("core.utils").load_mappings("dap_go")
     end
   },
+  {
+    "nvimtools/none-ls.nvim",
+    ft = "go",
+    opts = function()
+      return require "configs.none-ls"
+    end,
+  },
+
 }
