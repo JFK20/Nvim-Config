@@ -1,29 +1,9 @@
--- load defaults i.e lua_lsp
+-- load defaults i.e lua_lsp (also sets capabilities/on_init for "*" and on_attach via LspAttach)
 require("nvchad.configs.lspconfig").defaults()
 
-local lspconfig = require "lspconfig"
-local util = require "lspconfig/util"
-
--- local on_attach = require("configs.lspconfig").on_attach
--- local capabilities = require("configs.lspconfig").capabilities
-
--- EXAMPLE
-local servers = { "html", "cssls" }
-local nvlsp = require "nvchad.configs.lspconfig"
-
--- lsps with default config
-for _, lsp in ipairs(servers) do
-  lspconfig[lsp].setup {
-    on_attach = nvlsp.on_attach,
-    on_init = nvlsp.on_init,
-    capabilities = nvlsp.capabilities,
-  }
-end
-
-lspconfig.gopls.setup {
-  cmd = {"gopls"},
-  filetypes = { "go", "gomod", "gowork", "gotmpl" },
-  root_dir = util.root_pattern("go.work", "go.mod", ".git"),
+-- server defaults (cmd, filetypes, root markers) come from nvim-lspconfig's lsp/*.lua,
+-- only overrides are listed here
+vim.lsp.config("gopls", {
   settings = {
     gopls = {
       completeUnimported = true,
@@ -33,20 +13,28 @@ lspconfig.gopls.setup {
       },
     },
   },
-}
+})
 
--- lspconfig.dockerls.setup {
---  cmd = { "docker-language-server start", "--stdio" },
---  filetypes = { "Dockerfile", "dockerfile" },
---  root_dir = util.root_pattern(".git", "Dockerfile"),
---  on_attach = nvlsp.on_attach,
---  on_init = nvlsp.on_init,
---  capabilities = nvlsp.capabilities,
--- }
+vim.lsp.config("clangd", {
+  cmd = {
+    "clangd",
+    "--background-index",
+    "--clang-tidy",
+    "--header-insertion=iwyu",
+    "--completion-style=detailed",
+    "--function-arg-placeholders",
+    "--fallback-style=llvm",
+  },
+  init_options = {
+    usePlaceholders = true,
+    completeUnimported = true,
+    clangdFileStatus = true,
+  },
+})
 
--- configuring single server, example: typescript
--- lspconfig.ts_ls.setup {
---   on_attach = nvlsp.on_attach,
---   on_init = nvlsp.on_init,
---   capabilities = nvlsp.capabilities,
--- }
+vim.lsp.enable { "html", "cssls", "gopls", "clangd" }
+
+-- vim.lsp.config("dockerls", {
+--   cmd = { "docker-language-server", "start", "--stdio" },
+-- })
+-- vim.lsp.enable "dockerls"

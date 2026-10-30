@@ -18,9 +18,11 @@ return {
   	"nvim-treesitter/nvim-treesitter",
   	opts = {
   		ensure_installed = {
-  			"vim", "lua", "vimdoc",
-        "html", "css"
-  	  },
+        "vim", "lua", "vimdoc",
+        "html", "css",
+        "go", "gomod",
+        "c", "cpp", "cmake", "make",
+      },
     },
   },
   {
@@ -34,9 +36,10 @@ return {
   },
   {
     "mfussenegger/nvim-dap",
-    init = function()
-      -- require("core.utils").load_mappings("dap")
-    end
+    cmd = { "DapToggleBreakpoint", "DapContinue" },
+    config = function()
+      require "configs.dap"
+    end,
   },
   {
     "leoluz/nvim-dap-go",
@@ -53,5 +56,8 @@ return {
       return require "configs.none-ls"
     end,
   },
-
+  {
+    "fatih/vim-go",
+    ft = "go",
+  },
 }
