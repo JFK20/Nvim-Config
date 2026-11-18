@@ -3,8 +3,9 @@
 ## Requirements
 1. Neovim >= 0.11
 2. A Nerd Font (e.g. GeistMono Nerd Font)
-3. Clone into the config dir:
-   `git clone -b nvim-root git@github.com:JFK20/Nvim-Config.git ~/.config/nvim && nvim`
+3. tree-sitter CLI + C compiler (for `:TSInstall`): `sudo pacman -S tree-sitter-cli gcc`
+4. Clone into the config dir:
+   `git clone git@github.com:JFK20/Nvim-Config.git ~/.config/nvim && nvim`
 
 ## Add an LSP
 1. Add `lsp/<name>.lua` – every file in [lsp/](./lsp) is enabled automatically
