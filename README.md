@@ -1,9 +1,24 @@
-**This repo is supposed to be used as config by NvChad users!**
+# Neovim Config using NvChad 2.5
 
-- The main nvchad repo (NvChad/NvChad) is used as a plugin by this repo.
-- So you just import its modules , like `require "nvchad.options" , require "nvchad.mappings"`
-- So you can delete the .git from this repo ( when you clone it locally ) or fork it :)
+## Requirements
+1. Neovim >= 0.11
+2. A Nerd Font (e.g. GeistMono Nerd Font)
+3. Clone into the config dir:
+   `git clone -b nvim-root git@github.com:JFK20/Nvim-Config.git ~/.config/nvim && nvim`
 
-# Credits
+## Add an LSP
+1. Add `lsp/<name>.lua` – every file in [lsp/](./lsp) is enabled automatically
+2. Add the Mason package to [mason.lua](./lua/configs/mason.lua) to auto-install it
 
-1) Lazyvim starter https://github.com/LazyVim/starter as nvchad's starter was inspired by Lazyvim's . It made a lot of things easier!
+## C / C++
+Install `clang` and `lldb` from your system (provides clangd, clang-format and lldb-dap).
+
+## Go
+1. Install [Go](https://go.dev/doc/install) (gopls is installed by Mason)
+2. Formatter and debugger tools:
+   ```
+   go install mvdan.cc/gofumpt@latest
+   go install github.com/segmentio/golines@latest
+   go install -v github.com/incu6us/goimports-reviser/v3@latest
+   go install github.com/go-delve/delve/cmd/dlv@latest
+   ```
