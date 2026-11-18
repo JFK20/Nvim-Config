@@ -13,6 +13,16 @@
 ## C / C++
 Install `clang` and `lldb` from your system (provides clangd, clang-format and lldb-dap).
 
+## JavaScript / TypeScript
+Mason installs `typescript-language-server` and `prettier`, both need Node.js:
+```
+sudo pacman -S nodejs npm
+```
+Then inside Neovim, for syntax highlighting:
+```
+:TSInstall javascript typescript tsx
+```
+
 ## Go
 1. Install [Go](https://go.dev/doc/install) (gopls is installed by Mason)
 2. Formatter and debugger tools:
