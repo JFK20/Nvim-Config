@@ -1,25 +1,34 @@
-# Neovim Config using NvChad
+# Neovim Config using NvChad 2.5
+
 ## Requirements
-1. Neovim > 0.9.0
-2. Nerd Font, No Mono Font (GeistMono Nerd Font)
-3. NvChad: git clone https://github.com/NvChad/starter ~/.config/nvim && nvim <br>
+1. Neovim >= 0.11
+2. A Nerd Font (e.g. GeistMono Nerd Font)
+3. Clone into the config dir:
+   `git clone -b nvim-root git@github.com:JFK20/Nvim-Config.git ~/.config/nvim && nvim`
 
-## Usage
-This config sits in ~/.config/nvim/nvim/lua
+## Add an LSP
+1. Add `lsp/<name>.lua` – every file in [lsp/](./lsp) is enabled automatically
+2. Add the Mason package to [mason.lua](./lua/configs/mason.lua) to auto-install it
 
-## Add Lsp
-1. Add lsp to ensure installed in [plugins](./custom/plugins.lua)
-2. Add lspgconfig.<lspname>.setup in ./custom/configs/lspconfig.lua
+## C / C++
+Install `clang` and `lldb` from your system (provides clangd, clang-format and lldb-dap).
 
-## Go Lsp
-Requirements:
-1. have [Go](https://go.dev/doc/install) Installed <br>
-  more help [here](https://dev.to/deadwin19/how-to-install-golang-on-wslwsl2-2880) 
-2. add [Gopls](https://pkg.go.dev/golang.org/x/tools/gopls#section-readme) <br>
-  with 'go install golang.org/x/tools/gopls@latest'
-  important restart System afterwars
+## JavaScript / TypeScript
+Mason installs `typescript-language-server` and `prettier`, both need Node.js:
+```
+sudo pacman -S nodejs npm
+```
+Then inside Neovim, for syntax highlighting:
+```
+:TSInstall javascript typescript tsx
+```
 
-3. Add the folloiwin go packges to the system via <br>
-    go install github.com/segmentio/golines@latest <br>
-    go install -v github.com/incu6us/goimports-reviser/v3@latest <br>
-    go install github.com/go-delve/delve/cmd/dlv@latest
+## Go
+1. Install [Go](https://go.dev/doc/install) (gopls is installed by Mason)
+2. Formatter and debugger tools:
+   ```
+   go install mvdan.cc/gofumpt@latest
+   go install github.com/segmentio/golines@latest
+   go install -v github.com/incu6us/goimports-reviser/v3@latest
+   go install github.com/go-delve/delve/cmd/dlv@latest
+   ```
